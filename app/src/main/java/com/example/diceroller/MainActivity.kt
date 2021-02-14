@@ -12,20 +12,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val rollButton: Button = findViewById(R.id.button)
-        rollButton.setOnClickListener {
-            rollDice(6, R.id.textView)
-            rollDice(2, R.id.textView2)
-        }
+        rollButton.setOnClickListener { rollDice(6, R.id.textView) }
     }
 
-    private fun rollDice (numSides: Int, id: Int) {
+    private fun rollDice(numSides: Int, id: Int) {
         val dice = Dice(numSides)
         val diceRoll = dice.roll()
 
         updateTextView(id, diceRoll)
     }
 
-    private fun updateTextView (id: Int, diceRoll: Int) {
+    private fun updateTextView(id: Int, diceRoll: Int) {
         val resultTextView: TextView = findViewById(id)
         resultTextView.text = diceRoll.toString()
     }
